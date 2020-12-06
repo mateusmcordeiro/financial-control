@@ -5,4 +5,11 @@ $fonts: "#{$assets}fonts/";
 
 /* o layout só tem 1 breakpoint de formataçao que é o mobile/tablet e o desktop. */
 
-$grid-breakpoints: ( xl: 1100px ) !default;
+$grid-breakpoints: ( xl: 1100px, md: 768px ) !default;
+
+
+:root {
+  --light-gray: #E0E0E0;
+  --medium-gray: #C4C4C4;
+  --dark-gray: #333333;
+}

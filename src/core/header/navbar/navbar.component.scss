@@ -1,0 +1,121 @@
+@import "_variables";
+@import "_mixins";
+
+.financial__nav {
+  position: relative;
+  .nav__toggle {
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    span {
+      width: 18px;
+      height: 2px;
+      background-color: var(--dark-gray);
+      margin-bottom: 3px;
+      &:last-of-type {
+        margin-bottom: 0;
+      }
+    }
+    @include media-breakpoint-up(md) {
+      display: none;
+    }
+  }
+  .nav__navbar {
+    position: fixed;
+    width: 252px;
+    height: 100vh;
+    background-color: var(--dark-gray);
+    top: 0;
+    right: -252px;  
+    transition: right 1s;
+    @include media-breakpoint-up(md) {
+      top: unset;
+      right: unset;
+      height: auto;
+      position: relative;
+      width: auto;
+      background-color: unset;
+    }
+    .nav_close {
+      display: flex;
+      position: absolute;
+      left: 20px;
+      top: 20px;
+      width: 16px;
+      height: 16px;
+      cursor: pointer;
+      @include media-breakpoint-up(md) {
+        display: none;
+      }
+    }
+    ul {
+      list-style-type: none; 
+      display: flex;
+      flex-direction: column;
+      padding: 0;
+      margin-top: 50px;
+      @include media-breakpoint-up(md) {
+        margin: 0px;
+        background-color: white;
+        flex-direction: row;
+      }
+      
+      li {
+        text-align: right;
+        padding: 10px 0px;
+        cursor: pointer;
+        position: relative;
+        @include media-breakpoint-up(md) { 
+          padding: 10px 20px;
+          text-align: center;
+          &:after {
+            height: 20px;
+            width: 1px;
+            background-color: #979797;
+            content: ' ';
+            position: absolute;
+            right: 0;
+          }
+          &:last-of-type {
+            padding-right: 20px;
+            &:after {
+              display: none;
+            }
+          }
+        }
+        
+        &:first-of-type {
+          padding-left: 20px;
+        }
+        
+        
+        a {
+          font-weight: 600;
+          font-size: 16px;
+          line-height: 19px;
+          color: white;
+          text-decoration: none;
+          padding-right: 20px;
+          @include media-breakpoint-up(md) { 
+            color: var(--dark-gray);
+            padding-right: 0;
+          }
+        }
+        &:hover {
+          
+          background-color: var(--medium-gray);
+          a {
+            color: var(--dark-gray);
+          }
+        }
+      }
+    }
+    
+  }
+  &.active {
+    .nav__navbar {
+      right: 0;
+    }
+    
+  }
+}

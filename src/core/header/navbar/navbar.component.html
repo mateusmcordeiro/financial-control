@@ -1,1 +1,23 @@
-<p>navbar works!</p>
+<nav class="financial__nav nav" [ngClass]="{'active': active}">
+  <div class="nav__toggle" (click)="toggleActive()">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+  <div class="nav__navbar">
+    <div class="nav_close" (click)="toggleActive()">
+      <img src="assets/icons/close.svg">
+    </div>
+    <ul>
+      <li>
+        <a href="#">Dashboard</a>
+      </li>
+      <li>
+        <a href="#">Resumo</a>
+      </li>
+      <li>
+        <a href="#">Configurações</a>
+      </li>
+    </ul>
+  </div>
+</nav>
