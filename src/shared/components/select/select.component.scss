@@ -1,0 +1,42 @@
+@import "_variables";
+@import "_mixins";
+
+.financial__component.select {
+  &.select {
+    display: flex;
+    height: 34px;
+    border: 1px solid #979797;
+    background-color: white;
+    border-radius: .25rem;
+    position: relative;
+    overflow: hidden;
+    select {
+      width: 100%;
+      border: none;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      text-indent: 1px;
+      text-overflow: '';
+      padding: 0 8px;
+      color: #888888;
+      background-color: white;
+    }
+    .arrow {
+      height: 100%;
+      position: absolute;
+      right: 10px;
+      color: var(--dark-gray);
+      display: flex;
+      align-items: center;
+      transition: transform .4s;
+    }
+    &.select--focused {
+      .arrow {
+        transform: rotate(180deg);
+      }
+    }
+    select:focus {
+      outline: none;
+    }
+  }
+}

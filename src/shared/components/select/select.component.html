@@ -1,0 +1,9 @@
+<div class="financial__component select" [ngClass]="{'select--focused': isFocused}" (change)="changeFocus(false)" (focusin)="changeFocus(true)" (focusout)="changeFocus(false)">
+  <label class="arrow" [for]="id">
+    <img src="assets/icons/chevron-down.svg">
+  </label>
+  <select name="teste" [id]="id">
+    <option [ngClass]="{'disabled': option.disabled}" *ngFor="let option of options" [value]="option.value" [disabled]="option.disabled">{{option.text}}</option>
+  </select>
+ 
+</div>
