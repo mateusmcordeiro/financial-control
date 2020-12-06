@@ -31,7 +31,8 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "src/styles.scss",
+              "src/styles/build.scss"
             ],
             "scripts": []
           },
@@ -94,7 +95,8 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "src/styles.scss",
+              "src/styles/build.scss"
             ],
             "scripts": []
           }
@@ -127,5 +129,8 @@
       }
     }
   },
-  "defaultProject": "financial-control"
+  "defaultProject": "financial-control",
+  "cli": {
+    "analytics": "77023106-bba6-451e-9b1a-9def91876d89"
+  }
 }
