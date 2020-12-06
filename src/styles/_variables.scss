@@ -1,0 +1,8 @@
+$assets: "../assets/";
+
+$fonts: "#{$assets}fonts/";
+
+
+/* o layout só tem 1 breakpoint de formataçao que é o mobile/tablet e o desktop. */
+
+$grid-breakpoints: ( xl: 1100px ) !default;
