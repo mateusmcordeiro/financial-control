@@ -92,22 +92,22 @@
     &.profit {
       .total {
         &:after {
-          content: '[LUCRO]'
+          content: '[LUCRO]';
         }
       }
     }
     &.balanced {
       .total {
         &:after {
-          content: '[BALANCEADO]'
+          content: '[BALANCEADO]';
         }
       }
-      
     }
     &.negative {
       .total {
         &:after {
-          content: '[PREJUIZO]'
+          content: '[PREJUIZO]';
+          color: red;
         }
       }
       

@@ -11,6 +11,12 @@ export class TransactionCreatorComponent implements OnInit {
   @Output()
   onTransactionAdded = new EventEmitter();
 
+  emptyForm = {
+    type: '0',
+    name: '',
+    value: ''
+  };
+
   transactionForm: FormGroup;
   currency = {
     active: true,
@@ -34,11 +40,7 @@ export class TransactionCreatorComponent implements OnInit {
     }
   ]
   constructor(private formBuilder: FormBuilder) {
-    this.transactionForm = this.formBuilder.group({
-      type: '0',
-      name: '',
-      value: ''
-    });
+    this.transactionForm = this.formBuilder.group(this.emptyForm);
   }
 
   ngOnInit(): void {
@@ -49,7 +51,15 @@ export class TransactionCreatorComponent implements OnInit {
   }
 
   submitForm(e: any) {
-    this.onTransactionAdded.emit(this.transactionForm.value);
-    this.transactionForm.reset();
+    if (
+      (this.transactionForm.value.name !== null && this.transactionForm.value.name.length > 0 )
+      && 
+      (this.transactionForm.value.value !== null && this.transactionForm.value.value.length > 0)
+    ) {
+      this.onTransactionAdded.emit(this.transactionForm.value);
+    }
+    this.transactionForm.markAsPristine();
+    this.transactionForm.markAsUntouched();
+    this.transactionForm.reset(this.emptyForm);
   }
 }
