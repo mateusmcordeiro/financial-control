@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SelectComponent } from './components/select/select.component';
 import { InputComponent } from './components/input/input.component';
+import { NgxCurrencyModule } from 'ngx-currency';
 
 
 
@@ -11,7 +12,9 @@ import { InputComponent } from './components/input/input.component';
     InputComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    NgxCurrencyModule
+
   ],
   exports:[
     SelectComponent,

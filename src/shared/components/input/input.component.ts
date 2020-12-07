@@ -1,6 +1,18 @@
 import { Component, EventEmitter, Input, OnInit, Optional, Output, Self } from '@angular/core';
 import { ControlValueAccessor, NgControl } from '@angular/forms';
 
+
+export interface CurrencyMaskConfig {
+  active: boolean,
+  options: {
+    prefix: string,
+    thousands: string,
+    decimal: string,
+    align: string
+  }
+  
+} 
+
 @Component({
   selector: 'app-input',
   templateUrl: './input.component.html',
@@ -18,7 +30,15 @@ export class InputComponent implements ControlValueAccessor {
   type: 'text' | 'email' | 'password' = 'text';
 
   @Input()
-  withSymbol = false;
+  currency: CurrencyMaskConfig = {
+    active: false,
+    options: {
+      prefix: '',
+      thousands: '',
+      decimal: '',
+      align: 'left'
+    }
+  };
 
   @Output() 
   oninput = new EventEmitter();
@@ -62,5 +82,7 @@ export class InputComponent implements ControlValueAccessor {
   registerOnTouched(fn: any): void {
     this.onTouched = fn;
   }
+
+
 
 }

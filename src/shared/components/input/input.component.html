@@ -1,10 +1,22 @@
-<div class="financial__component input" [ngClass]="{'symbol': withSymbol}">
-  <ng-content select="[input__symbol]" *ngIf="withSymbol"></ng-content>
-  <input 
+<div class="financial__component input">
+  <ng-container *ngIf="!currency.active">
+    <input 
     [type]="type"
     [placeholder]="placeholder"
     [value]="value"
     [disabled]="disabled"
     (input)="inputChanged($event)"
   >
+  </ng-container>
+  <ng-container *ngIf="currency.active">
+    <input 
+    [type]="type"
+    [placeholder]="placeholder"
+    [value]="value"
+    [disabled]="disabled"
+    (input)="inputChanged($event)"
+    currencyMask 
+    [options]="currency.options"
+  >
+  </ng-container>
 </div>

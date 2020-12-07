@@ -1,14 +1,6 @@
 .financial__component.input {
   position: relative;
   
-  ::ng-deep [input__symbol] {
-    position: absolute;
-    left: 8px;
-    top: 6px;
-    font-size: 14px;
-    line-height: 22px;
-    color: #888888;
-  }
   input {
     border: 1px solid #979797;
     font-size: 14px;
@@ -23,12 +15,6 @@
     &:focus {
       outline: none;
       border-color: var(--dark-gray);
-    }
-  }
-  &.symbol {
-    input {
-      padding-left: 30px;
-
     }
   }
 }

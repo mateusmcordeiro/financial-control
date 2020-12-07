@@ -9,7 +9,16 @@ import { TransactionType } from 'src/shared/enums/transaction.enum';
 })
 export class TransactionCreatorComponent implements OnInit {
   transactionForm: FormGroup;
-  inputWithSymbol = true;
+  currency = {
+    active: true,
+    options: {
+      prefix: 'R$ ',
+      thousands: '.',
+      decimal: ',',
+      align: 'left'
+    }
+    
+  };
   options = [
     {
       value: TransactionType.COMPRA,
