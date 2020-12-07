@@ -13,8 +13,6 @@ export interface SelectOptionModel {
   styleUrls: ['./select.component.scss']
 })
 export class SelectComponent implements ControlValueAccessor  {
-  @HostBinding('attr.id')
-  externalId = '';
 
   @Input()
   options: Array<SelectOptionModel> = [
@@ -29,15 +27,14 @@ export class SelectComponent implements ControlValueAccessor  {
 
   @Input()
   set id(value: string) {
-    this._ID = value;
-    this.externalId = '';
+    this._id = value;
   }
 
   get id() {
-    return this._ID;
+    return `${this._id}-select`;
   }
 
-  private _ID = '';
+  private _id = '';
   
   isFocused = false;
   _label = 'Selecione'
