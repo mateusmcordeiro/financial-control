@@ -1,4 +1,4 @@
-<div class="financial__component select" [ngClass]="{'select--focused': isFocused}" (change)="changeFocus(false)" (focusin)="changeFocus(true)" (focusout)="changeFocus(false)">
+<div class="financial__component select" [ngClass]="{'select--focused': isFocused}" (change)="selectChanged($event)" (focusin)="changeFocus(true)" (focusout)="changeFocus(false)">
   <label class="arrow" [for]="id">
     <img src="assets/icons/chevron-down.svg">
   </label>

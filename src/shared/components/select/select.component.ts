@@ -1,5 +1,5 @@
-import { Component, EventEmitter, HostBinding, Input, OnInit, Output } from '@angular/core';
-import { ControlValueAccessor } from '@angular/forms';
+import { Component, EventEmitter, HostBinding, Input, OnInit, Optional, Output, Self } from '@angular/core';
+import { ControlValueAccessor, NgControl } from '@angular/forms';
 
 export interface SelectOptionModel {
   value: any;
@@ -43,7 +43,15 @@ export class SelectComponent implements ControlValueAccessor  {
   _label = 'Selecione'
   _value: any;
 
-  constructor() { }
+  constructor(
+    @Self() 
+    @Optional()
+    private ngControl: NgControl
+    ) { 
+      if (this.ngControl) {
+        this.ngControl.valueAccessor = this;
+      }
+    }
 
   ngOnInit(): void {
   }
@@ -53,35 +61,28 @@ export class SelectComponent implements ControlValueAccessor  {
     this.isFocused = isFocus;
   }
 
-  onSelect(data: SelectOptionModel){
-    this._label = data.text
-    this._value = data.value
-    this.onChange(this.value)
-    this.onchange.emit(this._value)
-  }
-
   get value(): any {
     return this._value;
   }
 
-  onChange(value: any) {
-    this._value = value;
-  };
-
-  onTouched() { 
-
+  selectChanged(event: any) {
+    this.onChange(event.target.value);
+    this.changeFocus(false);
   }
+
+  private onChange(e: any) {};
+
+  private onTouched() {}
 
   writeValue(value: any): void {
-    this._value = value
-    this.onChange(this._value)
+    this._value = value;
   }
   
-  registerOnChange(fn: (value: any) => void): void {
+  registerOnChange(fn: any): void {
     this.onChange = fn;
   }
   
-  registerOnTouched(fn: () => void): void {
+  registerOnTouched(fn: any): void {
     this.onTouched = fn;
   }
   

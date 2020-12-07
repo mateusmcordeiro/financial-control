@@ -23,7 +23,7 @@ export class TransactionCreatorComponent implements OnInit {
   ]
   constructor(private formBuilder: FormBuilder) {
     this.transactionForm = this.formBuilder.group({
-      type: 0,
+      type: '0',
       name: '',
       value: ''
     });
@@ -33,4 +33,9 @@ export class TransactionCreatorComponent implements OnInit {
   ngOnInit(): void {
   }
 
+
+  changedSelect(e: any) {
+    console.log(e);
+    console.log(this.transactionForm.value);
+  }
 }

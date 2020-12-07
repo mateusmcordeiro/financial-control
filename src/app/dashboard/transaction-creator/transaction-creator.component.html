@@ -1,5 +1,5 @@
 <form [formGroup]="transactionForm" >
-  <app-select [options]="options"></app-select>
+  <app-select [options]="options" formControlName="type" (change)="changedSelect($event)"></app-select>
 </form>
 
 
