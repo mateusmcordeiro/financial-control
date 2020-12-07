@@ -12,4 +12,8 @@ export class DashboardComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  transactionAddedTrigger(e: any) {
+    console.log(e);
+  }
+
 }

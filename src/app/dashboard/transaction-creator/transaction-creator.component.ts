@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { TransactionType } from 'src/shared/enums/transaction.enum';
 
@@ -8,6 +8,9 @@ import { TransactionType } from 'src/shared/enums/transaction.enum';
   styleUrls: ['./transaction-creator.component.scss']
 })
 export class TransactionCreatorComponent implements OnInit {
+  @Output()
+  onTransactionAdded = new EventEmitter();
+
   transactionForm: FormGroup;
   currency = {
     active: true,
@@ -17,7 +20,6 @@ export class TransactionCreatorComponent implements OnInit {
       decimal: ',',
       align: 'left'
     }
-    
   };
   options = [
     {
@@ -42,9 +44,12 @@ export class TransactionCreatorComponent implements OnInit {
   ngOnInit(): void {
   }
 
-
-  changedSelect(e: any) {
+  teste(e: any) {
     console.log(e);
-    console.log(this.transactionForm.value);
+  }
+
+  submitForm(e: any) {
+    this.onTransactionAdded.emit(this.transactionForm.value);
+    this.transactionForm.reset();
   }
 }

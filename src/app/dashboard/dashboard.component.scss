@@ -1,3 +1,11 @@
+@import "_variables";
+@import "_mixins";
+
 .financial__dashboard {
   margin-top: 26px;
+  .container {
+    @include media-breakpoint-up(xl) {
+      display: flex;
+    }
+  }
 }

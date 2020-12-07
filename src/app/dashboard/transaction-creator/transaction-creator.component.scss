@@ -1,0 +1,80 @@
+@import "_variables";
+@import "_mixins";
+
+form {
+  padding-bottom: 29px;
+  border-bottom: 1px solid #979797;
+}
+
+form.financial__form {
+  @include media-breakpoint-up(md) {
+    padding: 20px;
+    border: 1px solid #979797;
+    border-radius: 4px;
+  }
+  @include media-breakpoint-up(xl) {
+    width: 400px;
+  }
+  
+  .form__header{
+    display: none;
+    @include media-breakpoint-up(md) {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 22px;
+    }
+  }
+  .form__body {
+    display: flex;
+    flex-direction: column;
+    
+    
+    @include media-breakpoint-up(md) {
+      flex-direction: row;
+      justify-content: space-between;
+      .financial__form.group:first-child {
+        padding-right: 7px;
+      }
+      .financial__form.group:last-child {
+        padding-left: 7px;
+      }
+      .financial__form.group:first-child,.financial__form.group:last-child {
+        width: 25%;
+      }
+      .financial__form.group:not(:first-child):not(:last-child ) {
+        width: 50%;
+        padding: 0 7px;
+      }
+    }
+    @include media-breakpoint-up(xl) {
+      flex-direction: column;
+      .financial__form.group:first-child {
+        padding-right: 0;
+      }
+      .financial__form.group:last-child {
+        padding-left: 0;
+      }
+      .financial__form.group:first-child,.financial__form.group:last-child {
+        width: 100%;
+      }
+      .financial__form.group:not(:first-child):not(:last-child ) {
+        width: 100%;
+        padding: 0;
+      }
+    }
+  }
+  
+  .form__footer {
+    display: flex;
+    justify-content: flex-end;
+    button {
+      @include media-breakpoint-up(md) {
+        max-width: 200px;
+      }
+      @include media-breakpoint-up(xl) {
+        max-width: 100%;
+      }
+    }
+  }
+}

@@ -1,7 +1,26 @@
-<form [formGroup]="transactionForm" >
-  <app-select id="typeSeletor" [options]="options" formControlName="type"></app-select>
-  <app-input formControlName="name" placeholder="Input"></app-input>
-  <app-input formControlName="value" placeholder="R$ 0,00" [currency]="currency"></app-input>
+<form [formGroup]="transactionForm" (ngSubmit)="submitForm($event)" class="financial__form form">
+  <header class="form__header">
+    <h2>Nova transação</h2>
+  </header>
+  <section class="form__body">
+    <fieldset class="financial__form group">
+      <legend>Tipo de transação</legend>
+      <app-select id="typeSeletor" [options]="options" formControlName="type"></app-select>
+    </fieldset>
+    <fieldset class="financial__form group">
+      <legend>Nome da mercadoria</legend>
+      <app-input formControlName="name" placeholder="Input"></app-input>
+    </fieldset>
+    <fieldset class="financial__form group">
+      <legend>Valor</legend>
+      <app-input formControlName="value" placeholder="R$ 0,00" [currency]="currency" (oninput)="teste($event)"></app-input>
+    </fieldset>
+  </section>
+  <section class="form__footer">
+    <button type="submit">Adicionar transação</button>
+  </section>
+
+  
 </form>
 
 
