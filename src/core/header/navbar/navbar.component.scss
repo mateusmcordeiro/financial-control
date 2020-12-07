@@ -115,6 +115,7 @@
   &.active {
     .nav__navbar {
       right: 0;
+      z-index: 9999;
     }
     
   }
