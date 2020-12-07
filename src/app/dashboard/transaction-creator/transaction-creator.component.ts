@@ -38,7 +38,8 @@ export class TransactionCreatorComponent implements OnInit {
       text: 'Venda',
       disabled: false
     }
-  ]
+  ];
+
   constructor(private formBuilder: FormBuilder) {
     this.transactionForm = this.formBuilder.group(this.emptyForm);
   }
@@ -46,16 +47,8 @@ export class TransactionCreatorComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  teste(e: any) {
-    console.log(e);
-  }
-
   submitForm(e: any) {
-    if (
-      (this.transactionForm.value.name !== null && this.transactionForm.value.name.length > 0 )
-      && 
-      (this.transactionForm.value.value !== null && this.transactionForm.value.value.length > 0)
-    ) {
+    if ( this.transactionForm.value.name.length > 0 && this.transactionForm.value.value.length > 0) {
       this.onTransactionAdded.emit(this.transactionForm.value);
     }
     this.transactionForm.markAsPristine();
