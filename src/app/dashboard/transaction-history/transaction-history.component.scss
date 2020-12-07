@@ -14,8 +14,8 @@
     padding-bottom: 22px;
   }
   .transactions__content {
-    position: absolute;
     opacity: 0;
+    max-height: 0%;
     table {
       width: 100%;
       border-collapse: collapse;
@@ -117,14 +117,14 @@
     opacity: 1;
   }
   .transactions__content, .transactions__empty {
-    transition: opacity .5s;
+    transition: opacity 1s, max-height .5s;
   }
   &.transactions--show {
     .transactions__content {
       width: 100%;
-      position: absolute;
+      position: relative;
       opacity: 1;
-      
+      max-height: 100%;
     }
     .transactions__empty {
       opacity: 0;
