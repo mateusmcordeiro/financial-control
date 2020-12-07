@@ -1,5 +1,11 @@
 <form [formGroup]="transactionForm" >
-  <app-select id="typeSeletor" [options]="options" formControlName="type" (change)="changedSelect($event)"></app-select>
+  <app-select id="typeSeletor" [options]="options" formControlName="type"></app-select>
+  <app-input formControlName="name" placeholder="Input"></app-input>
+  <app-input formControlName="value" placeholder="0,00" [withSymbol]="inputWithSymbol">
+    <div input__symbol>
+      R$
+    </div>
+  </app-input>
 </form>
 
 

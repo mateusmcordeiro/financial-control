@@ -64,6 +64,7 @@ export class SelectComponent implements ControlValueAccessor  {
 
   selectChanged(event: any) {
     this.onChange(event.target.value);
+    this.onchange.emit(event.target.value);
     this.changeFocus(false);
   }
 

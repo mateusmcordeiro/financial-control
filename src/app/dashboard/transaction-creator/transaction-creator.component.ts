@@ -9,6 +9,7 @@ import { TransactionType } from 'src/shared/enums/transaction.enum';
 })
 export class TransactionCreatorComponent implements OnInit {
   transactionForm: FormGroup;
+  inputWithSymbol = true;
   options = [
     {
       value: TransactionType.COMPRA,
@@ -27,7 +28,6 @@ export class TransactionCreatorComponent implements OnInit {
       name: '',
       value: ''
     });
-
   }
 
   ngOnInit(): void {
