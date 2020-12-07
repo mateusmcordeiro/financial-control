@@ -28,6 +28,7 @@
     top: 0;
     right: -252px;  
     transition: right 1s;
+    z-index: 9999;
     @include media-breakpoint-up(md) {
       top: unset;
       right: unset;
@@ -115,7 +116,7 @@
   &.active {
     .nav__navbar {
       right: 0;
-      z-index: 9999;
+      
     }
   }
 }

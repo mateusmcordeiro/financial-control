@@ -1,1 +1,33 @@
-<p *ngFor="let item of this.storage | async">{{item.value | currency}}</p>
+<article class="financial__table transactions" [ngClass]="{ 'transactions--show': _transactionHistory.list.length > 0 }">
+  <div class="transactions__content" [ngClass]="{'profit': isProfit, 'balanced': IsBalancedProfit, 'negative': isNegativeProfit}">
+    <h2>Extrato de Transações</h2>
+    <table>
+      <thead>
+        <tr>
+          <th></th>
+          <th>Mercadoria</th>
+          <th>Valor</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of _transactionHistory.list">
+          <td>{{ item.type | transactionTypeSign}}</td>
+          <td>{{ item.name }}</td>
+          <td>{{ item.value | currency }}</td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <tr>
+          <td></td>
+          <td class="contrast">Total</td>
+          <td class="total">{{ getTotal | currency }}</td>
+        </tr>
+      </tfoot>
+    </table>
+    
+  </div>
+  <div class="transactions__empty">
+    <h2>Não há transações cadastradas</h2>
+  </div>
+  
+</article>

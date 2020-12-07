@@ -1,0 +1,133 @@
+@import "_variables";
+@import "_mixins";
+.financial__table.transactions {
+  position: relative;
+  margin-top: 44px;
+  text-align: center;
+  width: 100%;
+  @include media-breakpoint-up(xl) {
+    padding-left: 22px;
+  }
+  
+  h2 {
+    padding-bottom: 22px;
+  }
+  .transactions__content {
+    position: absolute;
+    opacity: 0;
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      thead {
+        th {
+          &:first-child {
+            width: 40px;
+            text-align: center;
+          }
+           &:not(:first-child):not(:last-child) {
+            text-align: left;
+          }
+          &:last-child {
+            text-align: right;
+          }
+        }
+      }
+      tbody,tfoot {
+        td {
+          font-size: 14px;
+          line-height: 16px;
+          &:first-child {
+            text-align: center;
+          }
+          &:not(:first-child):not(:last-child) {
+            text-align: left;
+          }
+          &:last-child {
+            text-align: right;
+          }
+        }
+       
+      }
+      tbody {
+        tr:last-child {
+          border-bottom: 4px double #979797;
+        }
+      }
+      tr {
+        border-bottom: 1px solid #979797;
+      }
+      td {
+        padding: 8px 0;
+      }
+      th {
+        padding: 4px 0;
+      }
+      tfoot {
+        .contrast {
+          font-size: 14px;
+          line-height: 16px;
+          font-weight: 700;
+        }
+        .total {
+          font-size: 14px;
+          line-height: 22px;
+          font-weight: 700;
+          position: relative;
+        }
+        tr {
+          border-bottom: none;
+        }
+      }
+    }
+    &.profit,&.balanced,&.negative {
+      .total:after {
+        font-size: 10px;
+        line-height: 22px;
+        position: absolute;
+        right: 0;
+        bottom: -7px;
+      }
+    }
+    &.profit {
+      .total {
+        &:after {
+          content: '[LUCRO]'
+        }
+      }
+    }
+    &.balanced {
+      .total {
+        &:after {
+          content: '[BALANCEADO]'
+        }
+      }
+      
+    }
+    &.negative {
+      .total {
+        &:after {
+          content: '[PREJUIZO]'
+        }
+      }
+      
+    }
+  }
+  .transactions__empty {
+    opacity: 1;
+  }
+  .transactions__content, .transactions__empty {
+    transition: opacity .5s;
+  }
+  &.transactions--show {
+    .transactions__content {
+      width: 100%;
+      position: absolute;
+      opacity: 1;
+      
+    }
+    .transactions__empty {
+      opacity: 0;
+    }
+  }
+  
+}

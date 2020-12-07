@@ -6,6 +6,9 @@
   .container {
     @include media-breakpoint-up(xl) {
       display: flex;
+      app-transaction-history {
+        width: 100%;
+      }
     }
   }
 }

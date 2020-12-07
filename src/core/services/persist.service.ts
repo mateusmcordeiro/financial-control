@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
+import { TransactionItem } from 'src/shared/types/transactionItem.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +11,7 @@ export class PersistService {
 
   storageObservable = this.storage.asObservable();
 
-  private data: Array<any> = [];
+  private data: Array<TransactionItem> = [];
 
   constructor() { 
     this.storageObservable.subscribe((storage) => {
@@ -29,10 +30,9 @@ export class PersistService {
     return [];
   }
 
-  updateStorage(item: any) {
+  updateStorage(item: TransactionItem) {
     const newStorage = this.data.concat(item);
     this.storage.next(newStorage);
   }
-
 
 }

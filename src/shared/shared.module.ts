@@ -4,6 +4,7 @@ import { SelectComponent } from './components/select/select.component';
 import { InputComponent } from './components/input/input.component';
 import { NgxCurrencyModule } from 'ngx-currency';
 import { CurrencyPipe } from './pipes/currency.pipe';
+import { TransactionTypeSignPipe } from './pipes/transaction-type-sign.pipe';
 
 
 
@@ -11,7 +12,8 @@ import { CurrencyPipe } from './pipes/currency.pipe';
   declarations: [
     SelectComponent,
     InputComponent,
-    CurrencyPipe
+    CurrencyPipe,
+    TransactionTypeSignPipe
   ],
   imports: [
     CommonModule,
@@ -21,7 +23,8 @@ import { CurrencyPipe } from './pipes/currency.pipe';
   exports:[
     SelectComponent,
     InputComponent,
-    CurrencyPipe
+    CurrencyPipe,
+    TransactionTypeSignPipe
   ]
 })
 export class SharedModule { }

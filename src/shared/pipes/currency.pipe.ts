@@ -5,12 +5,12 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class CurrencyPipe implements PipeTransform {
 
-  transform(value: string, ...args: any[]): string {
+  transform(value: number, ...args: any[]): string {
     const formatter = new Intl.NumberFormat('pt-BR', {
       style: 'currency',
       currency: 'BRL'
     });
-    return formatter.format(parseFloat(value));
+    return formatter.format(value);
   }
 
 }

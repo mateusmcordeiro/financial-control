@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { PersistService } from 'src/core/services/persist.service';
+import { TransactionType } from 'src/shared/enums/transaction.enum';
 
 @Component({
   selector: 'app-dashboard',
@@ -21,8 +22,8 @@ export class DashboardComponent implements OnInit {
       return removedFormatting.substring(0, removedFormatting.length - 3 ) + (commaOrString as string).replace(',','.');
     }
     const item  = {
-      value: formatValue(e.value),
-      type: e.type,
+      value: parseFloat(formatValue(e.value)),
+      type: (parseInt(e.type) as TransactionType),
       name: e.name
     }
     this.persist.updateStorage(item);
