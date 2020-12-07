@@ -3,13 +3,15 @@ import { CommonModule } from '@angular/common';
 import { SelectComponent } from './components/select/select.component';
 import { InputComponent } from './components/input/input.component';
 import { NgxCurrencyModule } from 'ngx-currency';
+import { CurrencyPipe } from './pipes/currency.pipe';
 
 
 
 @NgModule({
   declarations: [
     SelectComponent,
-    InputComponent
+    InputComponent,
+    CurrencyPipe
   ],
   imports: [
     CommonModule,
@@ -18,7 +20,8 @@ import { NgxCurrencyModule } from 'ngx-currency';
   ],
   exports:[
     SelectComponent,
-    InputComponent
+    InputComponent,
+    CurrencyPipe
   ]
 })
 export class SharedModule { }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { PersistService } from 'src/core/services/persist.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -7,13 +8,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DashboardComponent implements OnInit {
 
-  constructor() { }
+  constructor(private persist: PersistService) { }
 
   ngOnInit(): void {
   }
 
   transactionAddedTrigger(e: any) {
-    console.log(e);
+    const formatValue = (value: string) => {
+      const removedFormatting = value.replace(/\D/g, '');
+      const matchComma = value.match(/(\d)(,\d{2})/g);
+      const commaOrString = matchComma !== null? matchComma[0]: ''
+      return removedFormatting.substring(0, removedFormatting.length - 3 ) + (commaOrString as string).replace(',','.');
+    }
+    const item  = {
+      value: formatValue(e.value),
+      type: e.type,
+      name: e.name
+    }
+    this.persist.updateStorage(item);
   }
 
 }

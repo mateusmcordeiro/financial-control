@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { PersistService } from 'src/core/services/persist.service';
 
 @Component({
   selector: 'app-transaction-history',
@@ -6,8 +7,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./transaction-history.component.scss']
 })
 export class TransactionHistoryComponent implements OnInit {
-
-  constructor() { }
+  storage;
+  constructor(private persist: PersistService) { 
+    this.storage = this.persist.storageObservable;
+  }
 
   ngOnInit(): void {
   }

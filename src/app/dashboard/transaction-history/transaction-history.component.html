@@ -1,1 +1,1 @@
-<p>transaction-history works!</p>
+<p *ngFor="let item of this.storage | async">{{item.value | currency}}</p>
