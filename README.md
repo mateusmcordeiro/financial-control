@@ -12,7 +12,7 @@ $ npm install
 $ npm start
 ```
 ## Observação
-Todos os plugins que rodam na versão atual do angular para fazer mascara de inputs e eram necessários para esta aplicação estão quebrados.
+Todos os plugins que rodam na versão atual do angular para fazer mascara de inputs e que eram necessários para esta aplicação estão quebrados.
 Como eu não tenho tempo para mandar um Pull request corrigindo e esperar a release dessa feature, eu utilizei uma biblioteca feita em javascript vanilla e criei uma directive para fazer o intermédio entre a DOM do angular e a referencia ao elemento que o plugin pede. 
  
 Plugins quebrados para a funçao currency(dinheiro):  
