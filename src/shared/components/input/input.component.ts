@@ -3,14 +3,7 @@ import { ControlValueAccessor, NgControl } from '@angular/forms';
 
 
 export interface CurrencyMaskConfig {
-  active: boolean,
-  options: {
-    prefix: string,
-    thousands: string,
-    decimal: string,
-    align: string
-  }
-  
+  active: boolean
 } 
 
 @Component({
@@ -31,13 +24,7 @@ export class InputComponent implements ControlValueAccessor {
 
   @Input()
   currency: CurrencyMaskConfig = {
-    active: false,
-    options: {
-      prefix: '',
-      thousands: '',
-      decimal: '',
-      align: 'left'
-    }
+    active: false
   };
 
   @Output() 
@@ -63,8 +50,8 @@ export class InputComponent implements ControlValueAccessor {
   }
 
   inputChanged(e:any) {
-    this.onChange(e.target.value);
     this.oninput.emit(e.target.value);
+    this.onChange(e.target.value);
   }
 
   private onChange(e: any) {};

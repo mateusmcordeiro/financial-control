@@ -1,22 +1,21 @@
 <div class="financial__component input">
   <ng-container *ngIf="!currency.active">
     <input 
-    [type]="type"
-    [placeholder]="placeholder"
-    [value]="value"
-    [disabled]="disabled"
-    (input)="inputChanged($event)"
-  >
+      [type]="type"
+      [placeholder]="placeholder"
+      [value]="value"
+      [disabled]="disabled"
+      (input)="inputChanged($event)"
+    >
   </ng-container>
   <ng-container *ngIf="currency.active">
     <input 
-    [type]="type"
-    [placeholder]="placeholder"
-    [value]="value"
-    [disabled]="disabled"
-    (input)="inputChanged($event)"
-    currencyMask 
-    [options]="currency.options"
-  >
+      [type]="type"
+      [placeholder]="placeholder"
+      [value]="value"
+      [disabled]="disabled"
+      (input)="inputChanged($event)"
+      appCurrencyMask
+    >
   </ng-container>
 </div>

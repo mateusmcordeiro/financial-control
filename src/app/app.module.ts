@@ -25,12 +25,14 @@ function silenceConsoleMethods(injector: Injector) {
     DashboardModule
   ],
   providers: [
+    /*
     {
       provide: APP_INITIALIZER,
       useFactory: silenceConsoleMethods,
       deps: [Injector],
       multi: true
     }
+    */
   ],
   bootstrap: [AppComponent]
 })

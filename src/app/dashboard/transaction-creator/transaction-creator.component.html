@@ -10,10 +10,16 @@
     <fieldset class="financial__form group">
       <legend>Nome da mercadoria</legend>
       <app-input formControlName="name" placeholder="Input"></app-input>
+      <div *ngIf="submitted && f.name.errors" class="invalid-feedback">
+        <div *ngIf="f.name.errors.required">O Nome é obrigatório</div>
+      </div>
     </fieldset>
     <fieldset class="financial__form group">
       <legend>Valor</legend>
       <app-input formControlName="value" placeholder="R$ 0,00" [currency]="currency"></app-input>
+      <div *ngIf="submitted && f.value.errors" class="invalid-feedback">
+        <div *ngIf="f.value.errors.required">O Valor é obrigatório</div>
+      </div>
     </fieldset>
   </section>
   <section class="form__footer">

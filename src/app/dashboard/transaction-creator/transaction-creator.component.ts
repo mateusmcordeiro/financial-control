@@ -1,5 +1,5 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { TransactionType } from 'src/shared/enums/transaction.enum';
 
 @Component({
@@ -10,22 +10,10 @@ import { TransactionType } from 'src/shared/enums/transaction.enum';
 export class TransactionCreatorComponent implements OnInit {
   @Output()
   onTransactionAdded = new EventEmitter();
-
-  emptyForm = {
-    type: '0',
-    name: '',
-    value: ''
-  };
-
+  submitted = false;
   transactionForm: FormGroup;
   currency = {
-    active: true,
-    options: {
-      prefix: 'R$ ',
-      thousands: '.',
-      decimal: ',',
-      align: 'left'
-    }
+    active: true
   };
   options = [
     {
@@ -41,18 +29,33 @@ export class TransactionCreatorComponent implements OnInit {
   ];
 
   constructor(private formBuilder: FormBuilder) {
-    this.transactionForm = this.formBuilder.group(this.emptyForm);
+    this.transactionForm = this.formBuilder.group({
+      type: [
+        '0', 
+        Validators.required
+      ],
+      name: [
+        '', 
+        Validators.required
+      ],
+      value: [
+        '', 
+        Validators.required
+      ]
+    });
   }
 
   ngOnInit(): void {
   }
 
+  get f() { return this.transactionForm.controls; }
+
   submitForm(e: any) {
-    if ( this.transactionForm.value.name.length > 0 && this.transactionForm.value.value.length > 0) {
-      this.onTransactionAdded.emit(this.transactionForm.value);
+    if ( this.transactionForm.invalid) {
+      this.submitted = true;
+      return;
     }
-    this.transactionForm.markAsPristine();
-    this.transactionForm.markAsUntouched();
-    this.transactionForm.reset(this.emptyForm);
+    this.submitted = false;
+    this.onTransactionAdded.emit(this.transactionForm.value);
   }
 }

@@ -16,13 +16,11 @@ export class DashboardComponent implements OnInit {
 
   transactionAddedTrigger(e: any) {
     const formatValue = (value: string) => {
-      const removedFormatting = value.replace(/\D/g, '');
-      const matchComma = value.match(/(\d)(,\d{2})/g);
-      const commaOrString = matchComma !== null? matchComma[0]: ''
-      return removedFormatting.substring(0, removedFormatting.length - 3 ) + (commaOrString as string).replace(',','.');
+      const removedFormatting = value.replace(/[,]+/g,"");
+      return parseFloat(removedFormatting)
     }
     const item  = {
-      value: parseFloat(formatValue(e.value)),
+      value: formatValue(e.value),
       type: (parseInt(e.type) as TransactionType),
       name: e.name
     }
