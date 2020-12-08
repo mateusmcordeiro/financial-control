@@ -46,6 +46,7 @@ export class TransactionCreatorComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    
   }
 
   get f() { return this.transactionForm.controls; }
